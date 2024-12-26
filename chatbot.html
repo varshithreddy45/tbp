@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1>Chatbot</h1>
+        <div class="chat-container">
+            <div id="chat-output" class="chat-output">
+                <p><strong>Bot:</strong> Hello! How can I assist you today?</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function sendMessage() {
+            const input = document.getElementById("userInput");
+            const output = document.getElementById("chat-output");
+
+            if (input.value.trim()) {
+                const userMessage = `<p><strong>You:</strong> ${input.value}</p>`;
+                let botReply;
+
+                // Define bot replies based on user input
+                const userText = input.value.trim().toLowerCase();
+
+                if (userText.includes("hello")) {
+                    botReply = `<p><strong>Bot:</strong> Hi there! How can I assist you today?</p>`;
+                } else if (userText.includes("how are you")) {
+                    botReply = `<p><strong>Bot:</strong> I'm just a bot, but I'm functioning as expected. How about you?</p>`;
+                } else if (userText.includes("what is your name")) {
+                    botReply = `<p><strong>Bot:</strong> I'm your friendly chatbot, here to help!</p>`;
+                } else if (userText.includes("bye")) {
+                    botReply = `<p><strong>Bot:</strong> Goodbye! Have a great day!</p>`;
+                } else {
+                    botReply = `<p><strong>Bot:</strong> I'm not sure about that. Can you try asking in a different way?</p>`;
+                }
+
+                // Add user message and bot reply to chat
+                output.innerHTML += userMessage + botReply;
+                input.value = "";
+                output.scrollTop = output.scrollHeight; // Auto-scroll to the latest message
+            }
+        }
+    </script>
+</body>
+</html>

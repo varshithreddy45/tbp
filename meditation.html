@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1>Meditation</h1>
+        <p>Relax and follow the guided breathing exercises below.
+           Sit up straight on your cushion or chair.
+Rest your hands in a comfortable position.
+Tilt your chin downward and close your eyes.
+Start your timer Focus on your breathing. 
+Observe your breath without analyzing it.
+            
+        </p>
+        <div id="timer-container">
+            <h2 id="timer">3:00</h2>
+            <button onclick="startMeditation()">Start Meditation</button>
+        </div>
+    </div>
+    <script>
+        function startMeditation() {
+            const timer = document.getElementById("timer");
+            let time = 180; // 3 minutes in seconds
+            const interval = setInterval(() => {
+                const minutes = Math.floor(time / 60);
+                const seconds = time % 60;
+                timer.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                if (time === 0) {
+                    clearInterval(interval);
+                    alert("Meditation session completed!");
+                }
+                time--;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

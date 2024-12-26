@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affirmations</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1>Daily Affirmations</h1>
+        <p id="affirmation">"You are capable of amazing things."</p>
+        <button onclick="generateAffirmation()">New Affirmation</button>
+    </div>
+    <script>
+        const affirmations = [
+            "You are enough.",
+            "You are capable of amazing things.",
+            "Believe in yourself and all that you are.",
+            "Your possibilities are endless.",
+            "You are stronger than you think."
+        ];
+
+        function generateAffirmation() {
+            const randomIndex = Math.floor(Math.random() * affirmations.length);
+            document.getElementById("affirmation").textContent = affirmations[randomIndex];
+        }
+    </script>
+</body>
+</html>
